@@ -1,0 +1,17 @@
+import urllib2
+import re
+
+
+f = open('C:\Users\klamenzo\Desktop\Kevin\Misc stuff\Quoridor\BGA Replay Code\ReplayCodeRaw.txt', 'r')
+myfile = f.read()
+##response = urllib2.urlopen('http://en.boardgamearena.com/archive/replay/151214-1316/?table=17919123&player=32231182&comments=')
+##html = response.read()
+
+##print html
+
+
+pattern = '"quoridorstrats_notation":"([a-z][0-9])"'
+ 
+list_of_moves = re.findall(pattern, myfile)
+
+print list_of_moves
