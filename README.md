@@ -11,6 +11,7 @@ Made a GitHub repo so it will be easier to share. Here is the idea:
 0. Add the game number, player names, and freeboard input code to a database.
 0. Repeat with the next game.
 
+Some other ideas. 
 
 * It would be nice if we could control how many games we want to look at
 * It would be nice if we could control who the opponent was
