@@ -1,7 +1,7 @@
 import json
 import re
 
-file = 'ReplayCodeRaw.txt'
+file = 'ReplayCodeWallsRaw.txt'
 with open(file, "r") as data_file:
     data = data_file.read()
 pattern = "(?s)g_gamelogs\s*=\s*(\{.*?\})\n;"
