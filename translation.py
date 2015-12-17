@@ -2,16 +2,15 @@
 #quoridorstrats_notation <---> qf_code
 #This is tested on Python 2.6.9 and 3.5.1
 
-b64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-xalpha = "abcdefghi"
-
 def qfEncode(notation):
+	b64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+	xalpha = "abcdefghi"
 	qf_bin = "01"
 
 	movelist = notation.split(",")
 
 	movelen = len(movelist)
-	if movelen>1023:
+	if movelen >1023:
 		return "too many moves!!"
 
 	movelen_bin = bin(movelen)
@@ -104,12 +103,12 @@ def qfDecode(code):
 
 
 #test
-input_qs_notation = "e2,d2h,f2,e8,e7v,e7"
-print("Encode test: (" + input_qs_notation + ")--->(" + qfEncode(input_qs_notation) + ")")
-input_qs_notation2 = "e2,e2v,f2h,e8,h2h,e7,d6h,f7,f6h,e7,d2,d7,c7v,d8,d3,d3h,c3,b3h,a2h,d9,b3,c9,a3,c8,c5v,c2v,h6h,c7,a4,c6,a5,a5h,b5,b6h,a7v,b1v,c5,c4,c6,b4,b6,a4,a6"
-print("Encode test: (" + input_qs_notation2 + ")--->(" + qfEncode(input_qs_notation2) + ")")
+# input_qs_notation = "e2,d2h,f2,e8,e7v,e7"
+# print("Encode test: (" + input_qs_notation + ")--->(" + qfEncode(input_qs_notation) + ")")
+# input_qs_notation2 = "e2,e2v,f2h,e8,h2h,e7,d6h,f7,f6h,e7,d2,d7,c7v,d8,d3,d3h,c3,b3h,a2h,d9,b3,c9,a3,c8,c5v,c2v,h6h,c7,a4,c6,a5,a5h,b5,b6h,a7v,b1v,c5,c4,c6,b4,b6,a4,a6"
+# print("Encode test: (" + input_qs_notation2 + ")--->(" + qfEncode(input_qs_notation2) + ")")
 
 
-input_qf_code = "QGCLJPRA"
-print("Decode test: (" + input_qf_code + ")--->(" + qfDecode(input_qf_code) + ")")
+# input_qf_code = "QGCLJPRA"
+# print("Decode test: (" + input_qf_code + ")--->(" + qfDecode(input_qf_code) + ")")
 
