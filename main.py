@@ -1,17 +1,22 @@
-import urllib2
+import json
 import re
 
-
-f = open('ReplayCodeRaw.txt', 'r')
-myfile = f.read()
-##response = urllib2.urlopen('http://en.boardgamearena.com/archive/replay/151214-1316/?table=17919123&player=32231182&comments=')
-##html = response.read()
-
-##print html
-
-
-pattern = '"quoridorstrats_notation":"([a-z][0-9])"'
- 
-list_of_moves = re.findall(pattern, myfile)
-
-print list_of_moves
+file = 'ReplayCodeRaw.txt'
+with open(file, "r") as data_file:
+    data = data_file.read()
+pattern = "(?s)g_gamelogs\s*=\s*(\{.*?\})\n;"
+moves = re.findall(pattern, data)
+data = json.loads(moves[0])
+mlist = list()
+for item in data["data"]["data"]:
+    ptype = item["data"][0]['type']
+    if((ptype == 'playToken') or (ptype == 'playWall')):
+        mlist.append(item["data"][0]["args"]["quoridorstrats_notation"])
+        # print(item["data"][0]["args"]["player_name"]+ ":")
+        # print(item["data"][0]["args"]["quoridorstrats_notation"])
+i = 0
+for play in mlist:
+    if(i > 0):
+        print ", ",
+    print play,
+    i = i + 1
