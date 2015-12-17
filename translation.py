@@ -16,7 +16,7 @@ def qfEncode(notation):
 
 	movelen_bin = bin(movelen)
 	movelen_bin = movelen_bin.replace("0b", "")
-	for i in range(10 - len(movelen_bin)):
+	for i in range(10 - len(movelen_bin)):    ##prepending the bin with 0 to make it len(10)
 		movelen_bin = "0" + movelen_bin
 	
 	qf_bin += movelen_bin
